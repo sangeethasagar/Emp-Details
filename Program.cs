@@ -1,5 +1,6 @@
 ﻿using System;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.IO;
 
 namespace ConsoleApp4
 {
@@ -7,8 +8,8 @@ namespace ConsoleApp4
     {
         static void Main(string[] args)
         {
-
-            string filePath = @"C:\Users\sange\source\repos\ConsoleApp4\ConsoleApp4\files\Emp Details.xlsx";
+            string fileName = "Emp Details.xlsx";
+            string filePath = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).ToString() + "\\files\\"+fileName;
             Excel.Application xlApp = new Excel.Application();
             Excel.Workbook Wkb = xlApp.Workbooks.Open(filePath);
             Excel.Worksheet WsSht = Wkb.Sheets[1]; // assume it is the first sheet
